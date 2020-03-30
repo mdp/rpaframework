@@ -35,7 +35,7 @@ packages = [
 [tool.poetry.dependencies]
 python = "^3.6"
 dataclasses = {version = "^0.7", python=">=3.6,<3.7"}
-robotframework = "^3.1.2"
+robotframework = {version = "^3.2b2", allow-prereleases = true}
 robotframework-seleniumlibrary = "^4.1.0"
 robotframework-sapguilibrary = {version = "^1.1", platform = "win32"}
 robotframework-requests = "^0.6.5"
@@ -54,6 +54,7 @@ pillow = "^7.0.0"
 pyscreenshot = "^1.0"
 opencv-python = {version = "^4.2.0", optional = true}
 numpy = {version = "^1.18.2", optional = true}
+graphviz = "^0.13.2"
 
 [tool.poetry.dev-dependencies]
 black = { version = "*", allow-prereleases = true }

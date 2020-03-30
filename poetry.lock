@@ -332,6 +332,19 @@ version = "1.7.2"
 
 [[package]]
 category = "main"
+description = "Simple Python interface for Graphviz"
+name = "graphviz"
+optional = false
+python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*"
+version = "0.13.2"
+
+[package.extras]
+dev = ["tox (>=3.0)", "flake8", "pep8-naming", "wheel", "twine"]
+docs = ["sphinx (>=1.7)", "sphinx-rtd-theme"]
+test = ["mock (>=2)", "pytest (>=3.4,<3.10.0 || >3.10.0)", "pytest-mock (>=1.8)", "pytest-cov"]
+
+[[package]]
+category = "main"
 description = "Internationalized Domain Names in Applications (IDNA)"
 name = "idna"
 optional = false
@@ -776,7 +789,7 @@ description = "Generic automation framework for acceptance testing and robotic p
 name = "robotframework"
 optional = false
 python-versions = "*"
-version = "3.1.2"
+version = "3.2b2"
 
 [[package]]
 category = "main"
@@ -1105,7 +1118,7 @@ testing = ["jaraco.itertools", "func-timeout"]
 cv = ["opencv-python", "numpy"]
 
 [metadata]
-content-hash = "fe9415d6de70a6bb92a0992ef0ab5860ea7eb93c5e1acc165a8a83e9e9b81a83"
+content-hash = "31f993b51635f33a49082d8692474d834fd39283eeef12528fd52a52d95271e0"
 python-versions = "^3.6"
 
 [metadata.files]
@@ -1272,6 +1285,10 @@ fpdf = [
     {file = "fpdf-1.7.2.tar.gz", hash = "sha256:125840783289e7d12552b1e86ab692c37322e7a65b96a99e0ea86cca041b6779"},
     {file = "fpdf-1.7.2.win-amd64.exe", hash = "sha256:9542f6ad0791d673955da954a0cf3554a0affac79deab87bee06b9b4d4e60990"},
     {file = "fpdf-1.7.2.win32.exe", hash = "sha256:0a94eb783ee933e32a44ad949a1aa6c3ca6fb35b608db53f8b216aec52fc1fb5"},
+]
+graphviz = [
+    {file = "graphviz-0.13.2-py2.py3-none-any.whl", hash = "sha256:241fb099e32b8e8c2acca747211c8237e40c0b89f24b1622860075d59f4c4b25"},
+    {file = "graphviz-0.13.2.zip", hash = "sha256:60acbeee346e8c14555821eab57dbf68a169e6c10bce40e83c1bf44f63a62a01"},
 ]
 idna = [
     {file = "idna-2.9-py2.py3-none-any.whl", hash = "sha256:a068a21ceac8a4d63dbfd964670474107f541babbd2250d61922f029858365fa"},
@@ -1605,8 +1622,8 @@ requests-oauthlib = [
     {file = "requests_oauthlib-1.3.0-py3.7.egg", hash = "sha256:fa6c47b933f01060936d87ae9327fead68768b69c6c9ea2109c48be30f2d4dbc"},
 ]
 robotframework = [
-    {file = "robotframework-3.1.2-py2.py3-none-any.whl", hash = "sha256:cc4b04f711677c94c7d1e30ef1e5cdd50c0b731f8038d6214379c3def183c7f0"},
-    {file = "robotframework-3.1.2.zip", hash = "sha256:f10dd7c0c8c7962a4f80dd1e026b5db731b9391bc6e1f9ebb96d685eb1230dbc"},
+    {file = "robotframework-3.2b2-py2.py3-none-any.whl", hash = "sha256:0595d56630979e6f8f3d56adb91a0c7e81b6cd38d505bde1f714af92fad3f3db"},
+    {file = "robotframework-3.2b2.zip", hash = "sha256:5d5431e33e112c60101a46f073dec7ffa2e91747e95fb0af9a6dc0012f917fd3"},
 ]
 robotframework-requests = [
     {file = "robotframework-requests-0.6.5.tar.gz", hash = "sha256:6e34d7f2b26f023e389c0ef95f49bc1bc7dd7c5cdce9ab8c007b14aef6515ab3"},

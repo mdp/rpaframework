@@ -1,0 +1,39 @@
+{
+    "tasks": {
+        "Check if satisfied": {
+            "alias": "check",
+            "start": true,
+            "next": [
+                "increment",
+                "satisfied"
+            ],
+            "actions": [
+                {
+                    "condition": "$CURRENT >= $TARGET",
+                    "task": "satisfied"
+                },
+                {
+                    "condition": "$CURRENT < $TARGET",
+                    "task": "increment"
+                }
+            ]
+        },
+        "Increment current number": {
+            "alias": "increment",
+            "next": [
+                "check"
+            ],
+            "actions": [
+                {
+                    "status": "PASS",
+                    "task": "check"
+                }
+            ]
+        },
+        "Satisfaction": {
+            "alias": "satisfied",
+            "end": true,
+            "next": []
+        }
+    }
+}
