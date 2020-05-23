@@ -11,11 +11,6 @@ Description
 ***********
 
 `Google` is a library for operating with Google API endpoints.
-Base dependency is `boto3`_ library.
-
-
-.. _boto3:
-    https://boto3.amazonaws.com/v1/documentation/api/latest/index.html
 
 ********
 Examples
