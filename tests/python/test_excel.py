@@ -111,8 +111,15 @@ def test_read_worksheet_as_table(library):
     assert table[2, 2] == "Hashimoto"
 
 
-def test_append_to_worksheet(library):
-    library.append_rows_to_worksheet([["one", "two", "three"]])
+def test_append_to_worksheet_headers(library):
+    table = Table([
+        {"Index": 98, "Date": "today", "Id": "some_value"},
+        {"Index": 99, "Date": "tomorrow", "Id": "another_value"},
+    ])
+    library.append_rows_to_worksheet(table, header=True)
+
+    result = library.read_worksheet_as_table(header=True)
+    assert result[-1] == [99, "tomorrow", "another_value"]
 
 
 def test_remove_worksheet(library):

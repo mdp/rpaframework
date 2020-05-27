@@ -11,6 +11,7 @@ import xlwt
 from xlutils.copy import copy as xlutils_copy
 
 from RPA.Tables import Tables
+from RPA.core.inspect import is_list_like, is_dict_like
 
 
 class Files:
@@ -165,14 +166,14 @@ class Files:
 
         return table
 
-    def append_rows_to_worksheet(self, content, name=None):
+    def append_rows_to_worksheet(self, content, name=None, header=False):
         """Append values to the end of the worksheet.
 
         :param content: Rows of values to append
         :param name:    Name of worksheet to append to
         """
         assert self.workbook, "No active workbook"
-        return self.workbook.append_worksheet(name, content)
+        return self.workbook.append_worksheet(name, content, header)
 
     def remove_worksheet(self, name=None):
         """Remove a worksheet from the active workbook.
@@ -290,11 +291,16 @@ class XlsxWorkbook:
         _, columns = self._get_columns(sheet, header)
 
         for row in content:
-            if header and isinstance(row, dict):
+            if is_dict_like(row):
+                values = [''] * len(columns)
                 for column, value in row.items():
                     index = columns.index(column)
-                    row[index] = value
-            sheet.append(row)
+                    values[index] = value
+                sheet.append(values)
+            elif is_list_like(row):
+                sheet.append(row)
+            else:
+                raise ValueError(f"Unknown row type: {type(row)}")
 
         self.active = name
 
@@ -470,12 +476,12 @@ class XlsWorkbook:
             sheet_write = book.get_sheet(name)
 
             for r, row in enumerate(content, sheet_read.nrows):
-                if isinstance(row, (list, tuple)):
+                if is_dict_like(row):
+                    for column, value in row.items():
+                        sheet_write.write(r, columns.index(column), value)
+                elif is_list_like(row):
                     for c, value in enumerate(row):
                         sheet_write.write(r, c, value)
-                elif isinstance(row, dict):
-                    for column, value in row.items():
-                        sheet_write.write(r, columns.index[column], value)
                 else:
                     raise ValueError(f"Unknown row type: {type(row)}")
 
