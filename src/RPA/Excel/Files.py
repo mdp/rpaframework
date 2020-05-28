@@ -17,7 +17,7 @@ from RPA.core.inspect import is_list_like, is_dict_like
 
 def ensure_unique(values):
     """Ensures that each value in the list is unique.
-    Appends a prefix to each value that has duplicates,
+    Adds a suffix to each value that has duplicates,
     e.g. [Banana, Apple, Lemon, Apple] -> [Banana, Apple, Lemon, Apple_2]
     """
     def to_unique(values):
